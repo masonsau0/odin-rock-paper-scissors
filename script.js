@@ -27,7 +27,8 @@ const computerSelection = computerPlay();
 function playRound(userSelection, computerSelection) {
     if (userSelection === "rock") {
         if (computerSelection === "rock") {
-
+            console.log("It's a tie!");
+            replayRound();
         } else if (computerSelection === "paper") {
             console.log("You lose!");
         } else {
@@ -39,7 +40,7 @@ function playRound(userSelection, computerSelection) {
         if (computerSelection === "rock") {
             console.log("You win!");
         } else if (computerSelection === "paper") {
-            
+            replayRound();
         } else {
             console.log("You lose!");
         }
@@ -51,7 +52,11 @@ function playRound(userSelection, computerSelection) {
         } else if (computerSelection === "paper") {
             console.log("You win!");
         } else {
-            
+            replayRound();
         }
     }
+}
+
+function replayRound() {
+    playRound();
 }
