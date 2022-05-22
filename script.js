@@ -5,6 +5,8 @@
     repeat steps if  computer and user choose same option
 */
 
+const computerSelection = computerPlay();
+
 function computerPlay() {
     let computerChoice = Math.floor(Math.random() * (3 - 1 + 1)) + 1;     // random number between 1-3
     switch (computerChoice) {
@@ -21,8 +23,10 @@ function computerPlay() {
     return computerChoice;
 }
 
-const userSelection = "rock";
-const computerSelection = computerPlay();
+function userPlay() {
+   let userSelection =  prompt("Type rock, paper, or scissors to select move.");
+   userSelection = userSelection.toLowerCase() 
+}
 
 function playRound(userSelection, computerSelection) {
     if (userSelection === "rock") {
@@ -58,5 +62,6 @@ function playRound(userSelection, computerSelection) {
 }
 
 function replayRound() {
+    computerPlay();
     playRound();
 }
