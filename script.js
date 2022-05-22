@@ -3,8 +3,21 @@
     get user input of rock, paper, or scissors
     check both computer and user choice and decide winner based on choices
     repeat steps if  computer and user choose same option
+    make the game 5 rounds long 
 */
+let userScore = 0;
+let computerScore = 0;
+function game() {
+    for (let i = 1; i <= 5; i++) {
+        userPlay();
+        computerPlay();
+        playRound();
+    }
+    if (userScore > computerScore) {
+        console.log(`You won ${userScore}-${computerScore}!`);
+    }
 
+}
 const computerSelection = computerPlay();
 
 function computerPlay() {
@@ -31,31 +44,57 @@ function userPlay() {
 function playRound(userSelection, computerSelection) {
     if (userSelection === "rock") {
         if (computerSelection === "rock") {
-            console.log("It's a tie!");
+            console.log(
+                `It's a tie! 
+                Score: ${userScore}-${computerScore}`);
             replayRound();
         } else if (computerSelection === "paper") {
-            console.log("You lose!");
+            console.log(
+                `You lose, paper beats rock!
+                Score: ${userScore}-${computerScore}`);
+            computerScore++;
         } else {
-            console.log("You win!");
+            console.log(
+                `You win, rock beats scissors! 
+                Score: ${userScore}-${computerScore}`);
+            userScore++;
         }
     }
 
     if (userSelection === "paper") {
         if (computerSelection === "rock") {
-            console.log("You win!");
+            console.log(
+                `You win, paper beats rock! 
+                Score: ${userScore}-${computerScore}`);
+            userScore++;
         } else if (computerSelection === "paper") {
+            console.log(
+                `It's a tie! 
+                Score: ${userScore}-${computerScore}`);
             replayRound();
         } else {
-            console.log("You lose!");
+            console.log(
+                `You lose, scissors beats paper!
+                Score: ${userScore}-${computerScore}`);
+            computerScore++;
         }
     }
 
     if (userSelection === "scissors") {
         if (computerSelection === "rock") {
-            console.log("You lose!");
+            console.log(
+                `You lose, rock beats scissors!
+                Score: ${userScore}-${computerScore}`);
+            computerScore++;
         } else if (computerSelection === "paper") {
-            console.log("You win!");
+            console.log(
+                `You win, paper beats rock! 
+                Score: ${userScore}-${computerScore}`);
+            userScore++;
         } else {
+            console.log(
+                `It's a tie! 
+                Score: ${userScore}-${computerScore}`);
             replayRound();
         }
     }
