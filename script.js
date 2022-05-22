@@ -20,3 +20,38 @@ function computerPlay() {
     }
     return computerChoice;
 }
+
+const userSelection = "rock";
+const computerSelection = computerPlay();
+
+function playRound(userSelection, computerSelection) {
+    if (userSelection === "rock") {
+        if (computerSelection === "rock") {
+
+        } else if (computerSelection === "paper") {
+            console.log("You lose!");
+        } else {
+            console.log("You win!");
+        }
+    }
+
+    if (userSelection === "paper") {
+        if (computerSelection === "rock") {
+            console.log("You win!");
+        } else if (computerSelection === "paper") {
+            
+        } else {
+            console.log("You lose!");
+        }
+    }
+
+    if (userSelection === "scissors") {
+        if (computerSelection === "rock") {
+            console.log("You lose!");
+        } else if (computerSelection === "paper") {
+            console.log("You win!");
+        } else {
+            
+        }
+    }
+}
