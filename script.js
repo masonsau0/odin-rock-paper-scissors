@@ -36,9 +36,10 @@ function computerPlay() {
     return computerChoice;
 }
 
+const userSelection = userPlay();
 function userPlay() {
-   let userSelection =  prompt("Type rock, paper, or scissors to select move.");
-   userSelection = userSelection.toLowerCase() 
+   userSelection.toLowerCase() =  prompt("Type rock, paper, or scissors to select move.");
+   
 }
 
 function playRound(userSelection, computerSelection) {
