@@ -40,8 +40,8 @@ function computerPlay() {
 }
 
 function userPlay() {
-   userChoice.toLowerCase() =  prompt("Type rock, paper, or scissors to select move.");
-   return userChoice;
+   let userChoice =  prompt("Type rock, paper, or scissors to select move.");
+   return userChoice.toLowerCase();
 }
 
 function playRound(userSelection, computerSelection) {
@@ -54,48 +54,48 @@ function playRound(userSelection, computerSelection) {
                 Score: ${userScore}-${computerScore}`);
             replayRound();
         } else if (computerSelection === "paper") {
+            computerScore++;
             console.log(
                 `You lose, paper beats rock!
                 Score: ${userScore}-${computerScore}`);
-            computerScore++;
         } else {
+            userScore++;
             console.log(
                 `You win, rock beats scissors! 
                 Score: ${userScore}-${computerScore}`);
-            userScore++;
         }
     }
 
     if (userSelection === "paper") {
         if (computerSelection === "rock") {
+            userScore++;
             console.log(
                 `You win, paper beats rock! 
                 Score: ${userScore}-${computerScore}`);
-            userScore++;
         } else if (computerSelection === "paper") {
             console.log(
                 `It's a tie! 
                 Score: ${userScore}-${computerScore}`);
             replayRound();
         } else {
+            computerScore++;
             console.log(
                 `You lose, scissors beats paper!
                 Score: ${userScore}-${computerScore}`);
-            computerScore++;
         }
     }
 
     if (userSelection === "scissors") {
         if (computerSelection === "rock") {
+            computerScore++;
             console.log(
                 `You lose, rock beats scissors!
                 Score: ${userScore}-${computerScore}`);
-            computerScore++;
         } else if (computerSelection === "paper") {
+            userScore++;
             console.log(
                 `You win, paper beats rock! 
                 Score: ${userScore}-${computerScore}`);
-            userScore++;
         } else {
             console.log(
                 `It's a tie! 
