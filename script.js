@@ -14,9 +14,11 @@ function game() {
         playRound();
     }
     if (userScore > computerScore) {
-        console.log(`You win ${userScore}-${computerScore}!`);
+        console.log(`--- GAME OVER ---
+        You win ${userScore}-${computerScore}!`);
     } else {
-        console.log(`You lose ${userScore}-${computerScore}!`);
+        console.log(`--- GAME OVER ---
+        You win ${userScore}-${computerScore}!`);
     }
 
 }
