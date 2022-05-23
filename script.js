@@ -104,7 +104,5 @@ function playRound(userSelection, computerSelection) {
 }
 
 function replayRound() {
-    userPlay();
-    computerPlay();
     playRound();
 }
