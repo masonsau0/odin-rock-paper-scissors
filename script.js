@@ -5,6 +5,8 @@
     repeat steps if  computer and user choose same option
     make the game 5 rounds long 
 */
+let computerSelection;
+let userSelection;
 let userScore = 0;
 let computerScore = 0;
 function game() {
@@ -14,11 +16,12 @@ function game() {
         playRound();
     }
     if (userScore > computerScore) {
-        console.log(`You won ${userScore}-${computerScore}!`);
+        console.log(`You win ${userScore}-${computerScore}!`);
+    } else {
+        console.log(`You lose ${userScore}-${computerScore}!`);
     }
 
 }
-const computerSelection = computerPlay();
 
 function computerPlay() {
     let computerChoice = Math.floor(Math.random() * (3 - 1 + 1)) + 1;     // random number between 1-3
@@ -36,13 +39,14 @@ function computerPlay() {
     return computerChoice;
 }
 
-const userSelection = userPlay();
 function userPlay() {
-   userSelection.toLowerCase() =  prompt("Type rock, paper, or scissors to select move.");
-   
+   userChoice.toLowerCase() =  prompt("Type rock, paper, or scissors to select move.");
+   return userChoice;
 }
 
 function playRound(userSelection, computerSelection) {
+    computerSelection = computerPlay();
+    userSelection = userPlay();
     if (userSelection === "rock") {
         if (computerSelection === "rock") {
             console.log(
