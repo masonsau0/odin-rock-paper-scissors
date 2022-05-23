@@ -43,7 +43,7 @@ function computerPlay() {
 function userPlay() {
    let userChoice =  prompt("Type rock, paper, or scissors to select move.");
    userChoice = userChoice.toLowerCase();
-   if (userChoice != "rock" || userChoice != "rock" || userChoice != "rock") {
+   while (userChoice != "rock" || userChoice != "paper" || userChoice != "scissors") {
        console.log("Invalid move, try again.");
        userChoice =  prompt("Type rock, paper, or scissors to select move.");
    }
