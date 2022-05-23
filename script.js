@@ -11,8 +11,6 @@ let userScore = 0;
 let computerScore = 0;
 function game() {
     for (let i = 1; i <= 5; i++) {
-        userPlay();
-        computerPlay();
         playRound();
     }
     if (userScore > computerScore) {
