@@ -4,6 +4,7 @@
     check both computer and user choice and decide winner based on choices
     repeat steps if  computer and user choose same option
     make the game 5 rounds long 
+    create function to start game
 */
 let computerSelection;
 let userSelection;
@@ -41,6 +42,11 @@ function computerPlay() {
 
 function userPlay() {
    let userChoice =  prompt("Type rock, paper, or scissors to select move.");
+   userChoice = userChoice.toLowerCase();
+   if (userChoice != "rock" || userChoice != "rock" || userChoice != "rock") {
+       console.log("Invalid move, try again.");
+       userChoice =  prompt("Type rock, paper, or scissors to select move.");
+   }
    return userChoice.toLowerCase();
 }
 
