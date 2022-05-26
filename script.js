@@ -14,6 +14,7 @@ let computerScore = 0;
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
+const scoreMessage = document.querySelector('#score-message')     // get a reference to the 'score-message' div
 
 function clickListener(event) {
     const userSelection = event.target.id;
@@ -29,19 +30,6 @@ function clickListener(event) {
  paperButton.addEventListener("click", clickListener);
  scissorsButton.addEventListener("click", clickListener);
 
-function declareWinner() {
-    if (userScore > computerScore) {
-        console.log(`--- GAME OVER ---
-        You win ${userScore}-${computerScore}!`);
-        userScore = 0;
-        computerScore = 0;
-    } else {
-        console.log(`--- GAME OVER ---
-        You win ${userScore}-${computerScore}!`);
-        userScore = 0;
-        computerScore = 0;
-    }
-}
 
 function computerPlay() {
     let computerChoice = Math.floor(Math.random() * (3 - 1 + 1)) + 1;     // random number between 1-3
@@ -59,73 +47,43 @@ function computerPlay() {
     return computerChoice;
 }
 
-// function userPlay() {
-//    let userChoice =  prompt("Type rock, paper, or scissors to select move.");
-//    userChoice = userChoice.toLowerCase();
-//     while (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors") {
-//         console.log("Invalid move, try again.");
-//         userChoice =  prompt("Type rock, paper, or scissors to select move.");
-//         userChoice = userChoice.toLowerCase();
-//      }
-//     return userChoice.toLowerCase();
-// }
 
 function playRound(userSelection, computerSelection) {
-    // computerSelection = computerPlay();
-    //  userSelection = userSelection.toLowerCase();
     if (userSelection === "rock") {
         if (computerSelection === "rock") {
-            console.log(
-                `It's a tie! 
-                Score: ${userScore}-${computerScore}`);
+            scoreMessage.textContent = `It's a tie! Score: ${userScore}-${computerScore}`;
             replayRound();
         } else if (computerSelection === "paper") {
             computerScore++;
-            console.log(
-                `You lose, paper beats rock!
-                Score: ${userScore}-${computerScore}`);
+            scoreMessage.textContent = `You lose, paper beats rock! Score: ${userScore}-${computerScore}`;
         } else {
             userScore++;
-            console.log(
-                `You win, rock beats scissors! 
-                Score: ${userScore}-${computerScore}`);
+            scoreMessage.textContent = `You win, rock beats scissors! Score: ${userScore}-${computerScore}`;
         }
     }
 
     if (userSelection === "paper") {
         if (computerSelection === "rock") {
             userScore++;
-            console.log(
-                `You win, paper beats rock! 
-                Score: ${userScore}-${computerScore}`);
+            scoreMessage.textContent = `You win, paper beats rock! Score: ${userScore}-${computerScore}`;
         } else if (computerSelection === "paper") {
-            console.log(
-                `It's a tie! 
-                Score: ${userScore}-${computerScore}`);
+            scoreMessage.textContent = `It's a tie! Score: ${userScore}-${computerScore}`;
             replayRound();
         } else {
             computerScore++;
-            console.log(
-                `You lose, scissors beats paper!
-                Score: ${userScore}-${computerScore}`);
+            scoreMessage.textContent = `You lose, scissors beats paper! Score: ${userScore}-${computerScore}`;
         }
     }
 
     if (userSelection === "scissors") {
         if (computerSelection === "rock") {
             computerScore++;
-            console.log(
-                `You lose, rock beats scissors!
-                Score: ${userScore}-${computerScore}`);
+            scoreMessage.textContent = `You lose, rock beats scissors! Score: ${userScore}-${computerScore}`;
         } else if (computerSelection === "paper") {
             userScore++;
-            console.log(
-                `You win, paper beats rock! 
-                Score: ${userScore}-${computerScore}`);
+            scoreMessage.textContent = `You win, paper beats rock! Score: ${userScore}-${computerScore}`;
         } else {
-            console.log(
-                `It's a tie! 
-                Score: ${userScore}-${computerScore}`);
+            scoreMessage.textContent = `It's a tie! Score: ${userScore}-${computerScore}`;
             replayRound();
         }
     }
@@ -134,6 +92,22 @@ function playRound(userSelection, computerSelection) {
 function replayRound() {
     playRound();
 }
+
+function declareWinner() {
+    if (userScore > computerScore) {
+        scoreMessage.textContent = `--- GAME OVER ---
+         You win ${userScore}-${computerScore}!`;
+        userScore = 0;
+        computerScore = 0;
+    } else {
+        scoreMessage.textContent = `--- GAME OVER ---
+         You lose ${userScore}-${computerScore}!`;
+        userScore = 0;
+        computerScore = 0;
+    }
+}
+
+
 
 
 
