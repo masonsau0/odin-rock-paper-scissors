@@ -11,17 +11,17 @@ let userSelection;
 let userScore = 0;
 let computerScore = 0;
 function game() {
-    for (let i = 1; i <= 5; i++) {
-        playRound();
-    }
-    if (userScore > computerScore) {
-        console.log(`--- GAME OVER ---
-        You win ${userScore}-${computerScore}!`);
-    } else {
-        console.log(`--- GAME OVER ---
-        You win ${userScore}-${computerScore}!`);
-    }
-
+    // for (let i = 1; i <= 5; i++) {
+    //     playRound();
+    // }
+    // if (userScore > computerScore) {
+    //     console.log(`--- GAME OVER ---
+    //     You win ${userScore}-${computerScore}!`);
+    // } else {
+    //     console.log(`--- GAME OVER ---
+    //     You win ${userScore}-${computerScore}!`);
+    // }
+    playRound();
 }
 
 function computerPlay() {
