@@ -10,18 +10,37 @@ let computerSelection;
 let userSelection;
 let userScore = 0;
 let computerScore = 0;
-function game() {
-    // for (let i = 1; i <= 5; i++) {
-    //     playRound();
-    // }
-    // if (userScore > computerScore) {
-    //     console.log(`--- GAME OVER ---
-    //     You win ${userScore}-${computerScore}!`);
-    // } else {
-    //     console.log(`--- GAME OVER ---
-    //     You win ${userScore}-${computerScore}!`);
-    // }
-    playRound();
+
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
+function clickListener(event) {
+    const userSelection = event.target.id;
+    const computerSelection = computerPlay();
+    playRound(userSelection, computerSelection);
+
+    if (userScore === 5 || computerScore === 5) {
+        declareWinner();
+      }
+ }
+
+ rockButton.addEventListener("click", clickListener);
+ paperButton.addEventListener("click", clickListener);
+ scissorsButton.addEventListener("click", clickListener);
+
+function declareWinner() {
+    if (userScore > computerScore) {
+        console.log(`--- GAME OVER ---
+        You win ${userScore}-${computerScore}!`);
+        userScore = 0;
+        computerScore = 0;
+    } else {
+        console.log(`--- GAME OVER ---
+        You win ${userScore}-${computerScore}!`);
+        userScore = 0;
+        computerScore = 0;
+    }
 }
 
 function computerPlay() {
@@ -52,8 +71,8 @@ function computerPlay() {
 // }
 
 function playRound(userSelection, computerSelection) {
-    computerSelection = computerPlay();
-    userSelection = userPlay();
+    // computerSelection = computerPlay();
+    //  userSelection = userSelection.toLowerCase();
     if (userSelection === "rock") {
         if (computerSelection === "rock") {
             console.log(
@@ -116,19 +135,7 @@ function replayRound() {
     playRound();
 }
 
-const buttons = document.querySelectorAll('button');     // buttons is a node list.  It looks and acts much like an array.
 
-buttons.forEach( (button) => {     //  .forEach method to iterate through each button
 
-    button.addEventListener('click', () => {     // and for each one we add a 'click' listener
-        if(button.id === "rock") {
-            userSelection === "rock";
-        } else if (button.id === "paper") {
-                userSelection === "paper";
-            } else if (button.id === "scissors") {
-                userSelection === "scissors";
-            }
-    });
-});
 
 
