@@ -40,16 +40,16 @@ function computerPlay() {
     return computerChoice;
 }
 
-function userPlay() {
-   let userChoice =  prompt("Type rock, paper, or scissors to select move.");
-   userChoice = userChoice.toLowerCase();
-    while (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors") {
-        console.log("Invalid move, try again.");
-        userChoice =  prompt("Type rock, paper, or scissors to select move.");
-        userChoice = userChoice.toLowerCase();
-     }
-    return userChoice.toLowerCase();
-}
+// function userPlay() {
+//    let userChoice =  prompt("Type rock, paper, or scissors to select move.");
+//    userChoice = userChoice.toLowerCase();
+//     while (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors") {
+//         console.log("Invalid move, try again.");
+//         userChoice =  prompt("Type rock, paper, or scissors to select move.");
+//         userChoice = userChoice.toLowerCase();
+//      }
+//     return userChoice.toLowerCase();
+// }
 
 function playRound(userSelection, computerSelection) {
     computerSelection = computerPlay();
@@ -115,3 +115,20 @@ function playRound(userSelection, computerSelection) {
 function replayRound() {
     playRound();
 }
+
+const buttons = document.querySelectorAll('button');     // buttons is a node list.  It looks and acts much like an array.
+
+buttons.forEach( (button) => {     //  .forEach method to iterate through each button
+
+    button.addEventListener('click', () => {     // and for each one we add a 'click' listener
+        if(button.id === "rock") {
+            userSelection === "rock";
+        } else if (button.id === "paper") {
+                userSelection === "paper";
+            } else if (button.id === "scissors") {
+                userSelection === "scissors";
+            }
+    });
+});
+
+
