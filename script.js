@@ -14,7 +14,9 @@ let computerScore = 0;
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
-const scoreMessage = document.querySelector('#score-message')     // get a reference to the 'score-message' div
+const scoreMessage = document.querySelector('#score-message');     // get a reference to the 'score-message' div
+const gameOverMessage = document.querySelector('#game-over-message');  
+
 
 function clickListener(event) {
     const userSelection = event.target.id;
@@ -95,17 +97,28 @@ function replayRound() {
 
 function declareWinner() {
     if (userScore > computerScore) {
-        scoreMessage.textContent = `--- GAME OVER ---
-         You win ${userScore}-${computerScore}!`;
+        scoreMessage.textContent = `--- GAME OVER --- You win ${userScore}-${computerScore}!`;
+        // gameOverMessage.textContent = `--- GAME OVER ---`;
         userScore = 0;
         computerScore = 0;
     } else {
-        scoreMessage.textContent = `--- GAME OVER ---
-         You lose ${userScore}-${computerScore}!`;
+        scoreMessage.textContent = `--- GAME OVER --- You lose ${userScore}-${computerScore}!`;
+        // gameOverMessage.textContent = `--- GAME OVER ---`;
         userScore = 0;
         computerScore = 0;
     }
+    // const rematchButton = createElement('button');
+    // rematchButton.id = 'rematch';
+    // rematchButton.textContent = 'Play again';
+    // document.body.appendChild(rematchButton);
 }
+
+// function newGame() {
+//     userScore = 0;
+//     computerScore = 0;
+//     gameOverMessage.remove();
+//     scoreMessage.remove();
+// }
 
 
 
